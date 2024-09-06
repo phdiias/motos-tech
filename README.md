@@ -5,4 +5,4 @@
 
 <h2>Projeto da Imersão Dev com Google Gemini - Alura</h2>
 <p><a href="https://motos-tech.vercel.app/">Uma landing page de busca.</a> Você pode digitar o nome de uma moto ou marca e aparecerá as informações referente a sua pesquisa.</p>
-<img src="assets/banner.png" alt="Banner mostrando o layout da página">
+![Animação do projeto](assets/banner.gif)
