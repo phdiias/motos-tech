@@ -5,20 +5,32 @@
 
 * {
   box-sizing: border-box; /* Inclui padding e border na largura total */
+  margin: 0;
+  padding: 0;
 }
 
 /* Estiliza o corpo da página */
 body {
   font-family: "Exo 2", sans-serif; /* Define a fonte padrão */
+  font-size: 1.2rem;
+  min-height: 100vh;
   background-color: #101010; /* Cor de fundo da página */
   display: flex; /* Usa Flexbox para layout */
   flex-direction: column; /* Alinha os itens na vertical */
   align-items: center; /* Centraliza os itens horizontalmente */
   justify-content: center;
   height: 100vh; /* Preenche a altura total da viewport */
-  margin: 0;
-  padding: 0;
   overflow: hidden;
+}
+
+main {
+  width: 100%; /* Ocupará a largura completa da tela */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 
 header {
@@ -27,11 +39,16 @@ header {
 }
 
 /* Estiliza os títulos h1 */
+.mobile {
+  display: none;
+}
+
 h1 {
   font-size: 2.5rem; /* Tamanho da fonte */
   color: #ffffff; /* Cor do texto */
   white-space: nowrap;
   transition: margin-top 0.5s ease-in-out; /* Transição suave para margin-top */
+  max-width: 100%;
 }
 
 h1 a {
@@ -39,19 +56,47 @@ h1 a {
   color: #ffffff;
 }
 
+/* Em telas menores (mobile) */
+@media (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .thumbnail {
+    display: none;
+  }
+
+  .item-resultado h2 {
+    text-align: center;
+    color: #b8860b;
+  }
+
+  .item-resultado {
+    align-items: center;
+  }
+}
+
 /* Estiliza as seções da página */
 section {
   display: flex; /* Usa Flexbox para layout */
   flex-direction: column; /* Alinha os itens na vertical */
   align-items: center; /* Centraliza os itens horizontalmente */
-  margin-bottom: 1.5rem; /* Espaçamento abaixo de cada seção */
   transition: transform 0.5s ease; /* Animação para mover o conteúdo */
+}
+
+.pesquisa {
+  width: 100%;
 }
 
 /* Estiliza o container do campo de pesquisa */
 .campo-pesquisa-container {
   position: relative; /* Permite que o ícone seja posicionado dentro do container */
-  width: 30rem; /* Largura do container */
+  width: 100%;
+  max-width: 30rem;
 }
 
 /* Estiliza o campo de pesquisa */
@@ -84,12 +129,12 @@ section {
   cursor: pointer;
 }
 
-/* Estiliza os botões dentro das seções */
+/* Estiliza os botões dentro da seção campo pesquisa */
 section button {
-  padding: 0.8rem 1.2rem; /* Espaçamento interno do botão */
+  padding: 1rem 2rem; /* Espaçamento interno do botão */
   border: none; /* Remove a borda padrão */
-  border-radius: 1.2rem; /* Borda arredondada */
-  background-color: #800000; /* Cor de fundo do botão */
+  border-radius: 2rem; /* Borda arredondada */
+  background-color: #b80000; /* Cor de fundo do botão */
   color: #ffffff;
   font-size: 1rem; /* Tamanho da fonte */
   font-weight: 600;
@@ -103,20 +148,19 @@ section button:hover {
 }
 
 .erro {
-  color: #b8860b; /* Cor do texto, por exemplo, vermelho */
-  font-size: 1.5rem;
+  color: #b8860b; /* Um tom de vermelho mais forte para mensagens de erro */
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-top: 10px; /* Espaço acima da seção de erro, opcional */
   text-align: center;
 }
 
 /* Estiliza a caixa de resultados da pesquisa */
 .resultados-pesquisa {
-  width: 60rem; /* Largura máxima da caixa de resultados */
+  width: 100%;
+  max-width: 60rem;
   height: 53.5vh; /* Altura máxima da caixa de resultados */
   overflow-y: auto; /* Adiciona rolagem vertical se necessário */
-  margin-top: 1rem; /* Espaçamento acima da caixa de resultados */
-  padding: 1rem; /* Espaçamento interno */
+  padding: 0 1rem 1rem 1rem; /* Espaçamento interno */
   border-radius: 0.6rem; /* Borda arredondada */
 
   opacity: 0; /* Começa invisível */
@@ -132,6 +176,7 @@ section button:hover {
   display: block; /* Exibe as seções quando a classe 'show' é adicionada */
   opacity: 1; /* Torna o elemento visível */
   transform: translateY(0); /* Move para a posição original */
+  transition: opacity 0.5s ease, transform 0.3s ease-out;
 }
 
 /* Estiliza cada item de resultado */
@@ -140,8 +185,11 @@ section button:hover {
   border: #808080 1px solid;
   border-radius: 0.6rem; /* Borda arredondada */
   padding: 1rem; /* Espaçamento interno */
-  margin-bottom: 1rem; /* Espaçamento abaixo dos itens */
+  margin-bottom: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+
+  display: flex;
+  flex-direction: column;
 }
 
 /* Estiliza os títulos dentro dos itens de resultado */
@@ -202,6 +250,7 @@ section button:hover {
 
 /* Estiliza a âncora mais informações */
 .mais-informacoes {
+  padding-top: 1rem;
   text-decoration: none;
   font-weight: 800;
   color: #eeeeee;
@@ -217,7 +266,7 @@ footer {
   border-top: #eeeeee 1px solid;
   color: #eeeeee; /* Cor do texto */
   text-align: center; /* Alinha o texto ao centro */
-  padding: 0; /* Espaçamento interno */
+  padding: 1rem; /* Espaçamento interno */
   width: 100%; /* Largura total da página */
   position: absolute; /* Posiciona o rodapé */
   bottom: 0; /* Alinha ao fundo da página */
