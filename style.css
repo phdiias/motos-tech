@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Importa a fonte Chakra Petch do Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 
@@ -272,3 +273,279 @@ footer {
   bottom: 0; /* Alinha ao fundo da página */
   font-size: 1rem; /* Tamanho da fonte */
 }
+=======
+/* Importa a fonte Chakra Petch do Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  box-sizing: border-box; /* Inclui padding e border na largura total */
+  margin: 0;
+  padding: 0;
+}
+
+/* Estiliza o corpo da página */
+body {
+  font-family: "Exo 2", sans-serif; /* Define a fonte padrão */
+  font-size: 1.2rem;
+  min-height: 100vh;
+  background-color: #101010; /* Cor de fundo da página */
+  display: flex; /* Usa Flexbox para layout */
+  flex-direction: column; /* Alinha os itens na vertical */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  justify-content: center;
+  height: 100vh; /* Preenche a altura total da viewport */
+  overflow: hidden;
+}
+
+main {
+  width: 100%; /* Ocupará a largura completa da tela */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+header {
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Estiliza os títulos h1 */
+.mobile {
+  display: none;
+}
+
+h1 {
+  font-size: 2.5rem; /* Tamanho da fonte */
+  color: #ffffff; /* Cor do texto */
+  white-space: nowrap;
+  transition: margin-top 0.5s ease-in-out; /* Transição suave para margin-top */
+  max-width: 100%;
+}
+
+h1 a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* Em telas menores (mobile) */
+@media (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .thumbnail {
+    display: none;
+  }
+
+  .item-resultado h2 {
+    text-align: center;
+    color: #b8860b;
+  }
+
+  .item-resultado {
+    align-items: center;
+  }
+}
+
+/* Estiliza as seções da página */
+section {
+  display: flex; /* Usa Flexbox para layout */
+  flex-direction: column; /* Alinha os itens na vertical */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  transition: transform 0.5s ease; /* Animação para mover o conteúdo */
+}
+
+.pesquisa {
+  width: 100%;
+}
+
+/* Estiliza o container do campo de pesquisa */
+.campo-pesquisa-container {
+  position: relative; /* Permite que o ícone seja posicionado dentro do container */
+  width: 100%;
+  max-width: 30rem;
+}
+
+/* Estiliza o campo de pesquisa */
+.campo-pesquisa-container input {
+  width: 100%; /* Ajusta a largura do input para preencher o container */
+  border: 2px solid #ccc; /* Borda suave de 2px */
+  padding: 1rem 2.5rem 1rem 1rem; /* Espaçamento interno, adicionando espaço à direita para o ícone */
+  border-radius: 1.5rem; /* Borda arredondada */
+  color: #333333; /* Cor do texto */
+  font-size: 1rem; /* Tamanho da fonte */
+  outline: none; /* Remove o contorno padrão ao focar */
+  transition: all 0.3s ease; /* Transição suave para efeitos de foco */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Adiciona efeitos ao focar no campo de input */
+.campo-pesquisa-container input:focus {
+  border-color: #800000; /* Cor da borda ao focar */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada ao focar */
+}
+
+/* Estiliza o ícone de busca */
+.campo-pesquisa-icon {
+  position: absolute; /* Posiciona o ícone dentro do container */
+  right: 1rem; /* Espaçamento do ícone à direita */
+  top: 50%; /* Alinha verticalmente ao meio do input */
+  transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+  color: #800000; /* Cor do ícone */
+  font-size: 1.2rem; /* Tamanho do ícone */
+  cursor: pointer;
+}
+
+/* Estiliza os botões dentro da seção campo pesquisa */
+section button {
+  padding: 1rem 2rem; /* Espaçamento interno do botão */
+  border: none; /* Remove a borda padrão */
+  border-radius: 2rem; /* Borda arredondada */
+  background-color: #b80000; /* Cor de fundo do botão */
+  color: #ffffff;
+  font-size: 1rem; /* Tamanho da fonte */
+  font-weight: 600;
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: all 0.5 ease-in-out; /* Aumenta a duração e usa ease-in-out */
+  margin-top: 1rem;
+}
+
+section button:hover {
+  transform: scale(1.1); /* Aumenta o tamanho em 10% */
+}
+
+.erro {
+  color: #b8860b; /* Um tom de vermelho mais forte para mensagens de erro */
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Estiliza a caixa de resultados da pesquisa */
+.resultados-pesquisa {
+  width: 100%;
+  max-width: 60rem;
+  height: 53.5vh; /* Altura máxima da caixa de resultados */
+  overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+  padding: 0 1rem 1rem 1rem; /* Espaçamento interno */
+  border-radius: 0.6rem; /* Borda arredondada */
+
+  opacity: 0; /* Começa invisível */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(
+    20px
+  ); /* Ajuste a posição inicial para criar a animação */
+  display: none; /* Oculta as seções por padrão */
+}
+
+.resultados-pesquisa.show,
+#mensagem-erro.show {
+  display: block; /* Exibe as seções quando a classe 'show' é adicionada */
+  opacity: 1; /* Torna o elemento visível */
+  transform: translateY(0); /* Move para a posição original */
+  transition: opacity 0.5s ease, transform 0.3s ease-out;
+}
+
+/* Estiliza cada item de resultado */
+.item-resultado {
+  background: #333333; /* Cor de fundo dos itens */
+  border: #808080 1px solid;
+  border-radius: 0.6rem; /* Borda arredondada */
+  padding: 1rem; /* Espaçamento interno */
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estiliza os títulos dentro dos itens de resultado */
+.item-resultado h2 {
+  font-size: 1.5rem; /* Tamanho da fonte */
+  color: #eeeeee; /* Cor do texto */
+}
+
+/* Estiliza os links h2 dentro dos itens de resultado */
+.item-resultado h2 a {
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+  text-decoration: none; /* Remove o sublinhado padrão dos links */
+  color: #eeeeee; /* Cor do texto dos links */
+}
+
+/* Estiliza os links h2 quando são passados o mouse sobre */
+.item-resultado h2 a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: #b8860b;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.item-resultado h2 a:hover::after,
+.item-resultado h2 a:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+.item-resultado .thumbnail {
+  min-width: 10%;
+  max-width: 100%;
+  max-height: 100px;
+  align-self: center;
+}
+
+.item-resultado .titulo-thumbnail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estiliza a descrição meta dentro dos itens de resultado */
+.descricao-meta {
+  color: #e5e5e5; /* Cor do texto */
+  font-size: 1.2rem;
+  margin: 0.5rem 0; /* Margem acima e abaixo */
+  text-align: justify;
+  font-weight: 600;
+}
+
+/* Estiliza a âncora mais informações */
+.mais-informacoes {
+  padding-top: 1rem;
+  text-decoration: none;
+  font-weight: 800;
+  color: #eeeeee;
+}
+
+.mais-informacoes:hover {
+  text-decoration: underline #eeeeee; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estiliza o rodapé da página */
+footer {
+  background-color: #202020;
+  border-top: #eeeeee 1px solid;
+  color: #eeeeee; /* Cor do texto */
+  text-align: center; /* Alinha o texto ao centro */
+  padding: 1rem; /* Espaçamento interno */
+  width: 100%; /* Largura total da página */
+  position: absolute; /* Posiciona o rodapé */
+  bottom: 0; /* Alinha ao fundo da página */
+  font-size: 1rem; /* Tamanho da fonte */
+}
+>>>>>>> origin/main

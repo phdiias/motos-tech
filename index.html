@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -62,3 +63,69 @@
     <script src="typing.js"></script>
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Motos Tech</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header></header>
+    <main>
+      <h1 class="mobile">
+        <a
+          href=""
+          class="typewrite"
+          data-period="2000"
+          data-type='["Motos Tech"]'
+        >
+          <span class="wrap"></span>
+        </a>
+      </h1>
+      <h1 class="desktop">
+        <a
+          href=""
+          class="typewrite"
+          data-period="2000"
+          data-type='[ "Motos Tech", "Escolha a moto que mais combina com você." ]'
+        >
+          <span class="wrap"></span>
+        </a>
+      </h1>
+      <section class="pesquisa">
+        <div class="campo-pesquisa-container">
+          <label for="campo-pesquisa" class="sr-only"></label>
+          <input
+            type="text"
+            placeholder="Digite o nome ou a marca da moto"
+            id="campo-pesquisa"
+          />
+          <i
+            onclick="pesquisar()"
+            class="fas fa-search campo-pesquisa-icon"
+          ></i>
+        </div>
+        <button onclick="pesquisar()">Pesquisar</button>
+        <section id="mensagem-erro"></section>
+      </section>
+      <section class="resultados-pesquisa" id="resultados-pesquisa"></section>
+    </main>
+    <footer>
+      <p>2024 - Motos Tech. Todos os direitos reservados</p>
+      <p>Entre em contato pelo email: motostech@motos.com.br</p>
+    </footer>
+    <script src="dados.js"></script>
+    <script src="app.js"></script>
+    <script src="typing.js"></script>
+  </body>
+</html>
+>>>>>>> origin/main
