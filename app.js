@@ -1,11 +1,12 @@
 const pesquisar = () => {
   // Obtém o valor do campo de pesquisa
-  const campoPesquisa = document
+  const termoPesquisa = document
     .getElementById("campo-pesquisa")
     .value.toLowerCase()
 
   // Obtém a seção onde os resultados serão exibidos
   let section = document.getElementById("resultados-pesquisa")
+  let erro = document.getElementById("mensagem-erro")
 
   // Inicializa uma string para armazenar os resultados formatados e limpa as seções
   let resultados = ""
@@ -30,28 +31,26 @@ const pesquisar = () => {
 
   // Limpa qualquer mensagem de erro ou resultados anteriores
   ocultarSeccao(section)
+  ocultarSeccao(erro)
 
   // Usa setTimeout para garantir que a ocultação seja concluída antes de exibir o novo conteúdo
   setTimeout(() => {
     // Verifica se o campo de pesquisa está vazio
-    if (campoPesquisa === "") {
-      section.classList.add("erro")
-      section.innerHTML =
-        "<p>Por favor, digite o nome de uma moto ou marca.</p>"
-      mostrarSeccao(section)
+    if (termoPesquisa === "") {
+      erro.innerHTML = "<p>Por favor, digite um termo de pesquisa.</p>"
+      mostrarSeccao(erro)
       return // Sai da função sem fazer mais nada
     }
 
-    // Filtra os dados com base no campo de pesquisa
+    // Filtra os dados com base no termo de pesquisa
     const dadosFiltrados = dados.filter((dado) => {
       const texto =
         `${dado.titulo} ${dado.descricao} ${dado.marca} ${dado.tags}`.toLowerCase()
-      return texto.includes(campoPesquisa)
+      return texto.includes(termoPesquisa)
     })
 
     // Itera sobre os dados filtrados e adiciona o HTML formatado à string de resultados
     if (dadosFiltrados.length > 0) {
-      section.classList.remove("erro")
       dadosFiltrados.forEach((dado) => {
         resultados += `
           <div class="item-resultado">
@@ -75,12 +74,15 @@ const pesquisar = () => {
       section.innerHTML = resultados
       mostrarSeccao(section)
     } else {
-      section.classList.add("erro")
-      section.innerHTML = "<p>Nenhum resultado encontrado desta pesquisa.</p>"
-      mostrarSeccao(section)
+      erro.innerHTML =
+        "<p>Nenhum resultado encontrado para o termo de pesquisa fornecido.</p>"
+      mostrarSeccao(erro)
     }
   }, 500) // Tempo igual ao da transição de ocultação
 }
+
+// Adiciona o evento de clique no botão
+document.querySelector("section button").addEventListener("click", pesquisar)
 
 // Adiciona o evento de teclado no campo de pesquisa
 document
